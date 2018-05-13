@@ -1,0 +1,28 @@
+version: '2'
+services:
+  localdev:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: sh -c "exp login --non-interactive --username $EXPO_USERNAME --password $EXPO_PASSWORD && exp start --lan"
+    environment:
+      - EXPO_ENV=localdev
+      - EXPO_USERNAME
+      - EXPO_PASSWORD
+      - REACT_NATIVE_PACKAGER_HOSTNAME
+    ports:
+      - "19000:19000"
+      - "19001:19001"
+    volumes:
+      - ./Project/:/code/Project/
+      - /code/Project/node_modules/
+
+  exp:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: exp
+    environment:
+      - EXPO_ENV=prod
+      - EXPO_USERNAME
+      - EXPO_PASSWORD
