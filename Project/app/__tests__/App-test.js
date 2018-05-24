@@ -1,14 +1,17 @@
 import 'react-native';
 import React from 'react';
-import App from 'app/App';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
-it('renders the loading screen', async () => {
-  const tree = renderer.create(<App />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+import App from '../app';
 
-it('renders the root without loading screen', async () => {
-  const tree = renderer.create(<App skipLoadingScreen />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe('<App />', async () => {
+  it('renders the loading screen', async () => {
+    const tree = shallow(<App />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders the root without loading screen', async () => {
+    const tree = shallow(<App skipLoadingScreen />);
+    expect(tree).toMatchSnapshot();
+  });
 });

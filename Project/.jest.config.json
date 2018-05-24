@@ -1,0 +1,4 @@
+{
+  "preset": "jest-expo",
+  "setupTestFrameworkScriptFile": "<rootDir>/jest-setup.js"
+}

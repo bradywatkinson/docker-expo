@@ -2,10 +2,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --watchAll"
-  },
-  "jest": {
-    "preset": "jest-expo"
+    "test": "node ./node_modules/jest/bin/jest.js --config=.jest.config.json",
+    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll --config=.jest.config.json"
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -16,6 +14,10 @@
     "react-navigation": "2.0.0"
   },
   "devDependencies": {
-    "jest-expo": "^27.0.0"
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "jest-expo": "^27.0.0",
+    "react-dom": "^16.4.0"
   }
 }

@@ -17,6 +17,16 @@ services:
       - ./Project/:/code/Project/
       - /code/Project/node_modules/
 
+  harness:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: test
+    entrypoint: npm run
+    volumes:
+      - ./Project/:/code/Project/
+      - /code/Project/node_modules/
+
   exp:
     build:
       context: .
