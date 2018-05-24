@@ -2,6 +2,8 @@ import React from 'react';
 import { Notifications } from 'expo';
 import { createSwitchNavigator } from 'react-navigation';
 
+import AuthLoadingScreen from 'app/screens/AuthLoadingScreen';
+import AuthNavigator from 'app/navigation/AuthNavigator';
 import MainTabNavigator from 'app/navigation/MainTabNavigator';
 import registerForPushNotificationsAsync from 'app/api/registerForPushNotificationsAsync';
 
@@ -9,7 +11,13 @@ import registerForPushNotificationsAsync from 'app/api/registerForPushNotificati
 const AppNavigator = createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
+
+  AuthLoading: AuthLoadingScreen,
+  Auth: AuthNavigator,
   Main: MainTabNavigator,
+},
+{
+  initialRouteName: 'AuthLoading',
 });
 
 export default class RootNavigation extends React.Component {
