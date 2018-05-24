@@ -4,9 +4,8 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: sh -c "exp login --non-interactive --username $EXPO_USERNAME --password $EXPO_PASSWORD && exp start --lan"
+    command: sh -c "./exp-manage.sh -V && exp start --lan"
     environment:
-      - EXPO_ENV=localdev
       - EXPO_USERNAME
       - EXPO_PASSWORD
       - REACT_NATIVE_PACKAGER_HOSTNAME
@@ -31,8 +30,10 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: exp
+    entrypoint: ./exp-manage.sh
     environment:
-      - EXPO_ENV=prod
       - EXPO_USERNAME
       - EXPO_PASSWORD
+    volumes:
+      - ./Project/:/code/Project/
+      - /code/Project/node_modules/
