@@ -1,10 +1,18 @@
+/* eslint-disable global-require */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
+
 import RootNavigation from 'app/navigation/RootNavigation';
 
+
 export default class App extends React.Component {
+  static propTypes = {
+    skipLoadingScreen: PropTypes.bool,
+  };
+
   state = {
     isLoadingComplete: false,
   };
@@ -13,9 +21,9 @@ export default class App extends React.Component {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
-          startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
+          startAsync={this.loadResourcesAsync}
+          onError={this.handleLoadingError}
+          onFinish={this.handleFinishLoading}
         />
       );
     } else {
@@ -28,8 +36,8 @@ export default class App extends React.Component {
     }
   }
 
-  _loadResourcesAsync = async () => {
-    return Promise.all([
+  loadResourcesAsync = async () => (
+    Promise.all([
       Asset.loadAsync([
         require('./assets/images/robot-dev.png'),
         require('./assets/images/robot-prod.png'),
@@ -41,16 +49,16 @@ export default class App extends React.Component {
         // to remove this if you are not using it in your app
         'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
       }),
-    ]);
-  };
+    ])
+  );
 
-  _handleLoadingError = error => {
+  handleLoadingError = (error) => {
     // In this case, you might want to report the error to your error
     // reporting service, for example Sentry
-    console.warn(error);
+    console.warn(error); // eslint-disable-line no-console
   };
 
-  _handleFinishLoading = () => {
+  handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
 }
@@ -61,3 +69,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+/* eslint-enable global-require */

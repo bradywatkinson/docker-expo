@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js --config=.jest.config.json",
-    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll --config=.jest.config.json"
+    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll --config=.jest.config.json",
+    "lint": "eslint --max-warnings 0 -- ."
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
@@ -14,9 +15,17 @@
     "react-navigation": "2.0.0"
   },
   "devDependencies": {
+    "babel-eslint": "7.2.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-import-resolver-babel-module": "v2",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jest": "^21.15.2",
+    "eslint-plugin-react": "7.1.0",
+    "eslint-plugin-react-native": "2.3.2",
     "jest-expo": "^27.0.0",
     "react-dom": "^16.4.0"
   }

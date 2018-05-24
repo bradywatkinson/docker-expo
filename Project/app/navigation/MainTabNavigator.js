@@ -1,12 +1,13 @@
+/* eslint-disable react/prop-types, react/display-name */
 import React from 'react';
 import { Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from 'app/components/TabBarIcon';
 import HomeScreen from 'app/screens/HomeScreen';
 import LinksScreen from 'app/screens/LinksScreen';
 import SettingsScreen from 'app/screens/SettingsScreen';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -59,3 +60,4 @@ export default createBottomTabNavigator({
   LinksStack,
   SettingsStack,
 });
+/* eslint-enable react/prop-types, react/display-name */
