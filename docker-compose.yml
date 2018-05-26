@@ -9,6 +9,7 @@ services:
       - EXPO_USERNAME
       - EXPO_PASSWORD
       - REACT_NATIVE_PACKAGER_HOSTNAME
+      - REACT_DEBUGGER=rndebugger-open --expo
     ports:
       - "19000:19000"
       - "19001:19001"
