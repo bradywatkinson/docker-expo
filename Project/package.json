@@ -10,9 +10,13 @@
     "@expo/samples": "2.1.1",
     "babel-plugin-module-resolver": "v2",
     "expo": "^27.0.1",
+    "immutable": "^3.8.2",
     "react": "16.3.1",
     "react-native": "file:/package/react-native-sdk-27.0.0",
-    "react-navigation": "2.0.0"
+    "react-navigation": "2.0.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-immutable": "^4.0.0"
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",
