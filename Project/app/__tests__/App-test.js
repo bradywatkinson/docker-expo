@@ -2,16 +2,16 @@ import 'react-native';
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from '../app';
+import Root from '../Root';
 
-describe('<App />', async () => {
+describe('<Root />', async () => {
   it('renders the loading screen', async () => {
-    const tree = shallow(<App />);
+    const tree = shallow(<Root />);
     expect(tree).toMatchSnapshot();
   });
 
   it('renders the root without loading screen', async () => {
-    const tree = shallow(<App skipLoadingScreen />);
+    const tree = shallow(<Root skipLoadingScreen />);
     expect(tree).toMatchSnapshot();
   });
 });
