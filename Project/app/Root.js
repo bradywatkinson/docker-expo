@@ -1,6 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
+import 'regenerator-runtime/runtime';
+
 import loadAssets from 'app/utilities/loadAssets';
 
 import configureStore from 'app/store';
