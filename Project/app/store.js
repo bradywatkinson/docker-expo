@@ -2,6 +2,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
 import createSagaMiddleware from 'redux-saga';
+import {
+  createReactNavigationReduxMiddleware,
+} from 'react-navigation-redux-helpers';
 
 import createReducer from 'app/reducers';
 
@@ -25,10 +28,15 @@ export default function configureStore(initialState = {}) {
 
   const sagaMiddleware = createSagaMiddleware();
   const eventListenerMiddleware = reduxEventListener();
+  const navigationMiddleware = createReactNavigationReduxMiddleware(
+    'root',
+    (state) => state.nav,
+  );
 
   const middlewares = [
     sagaMiddleware,
     eventListenerMiddleware,
+    navigationMiddleware,
   ];
 
   const enhancers = [
